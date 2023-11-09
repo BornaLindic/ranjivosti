@@ -21,5 +21,25 @@ html
             p #{data}
 
         h1 CSRF
+        form(action='/csrfEnable', method='POST')
+            div Napad omogućen?
+            input(checked=csfrEnabled, type='checkbox', name='csrfEnabled') 
+            input(type='submit', value='Submit')
+
+        p Recimo da aplikacija čuva neki osjetljivi atribut: #{att}
+        p Vrijednost atributa može se promijeniti sa same stranice pomoću get zahtjeva. No ako korisnik učita ovo stranicu: 
+            a(href='/csrfImage') link
+        | na kojoj se nalazi slika s malicioznim get zahtjevom, vrijednost osjetljivog atributa će se nenamjerno promijeniti!
+        
+        form(action='/csrf', method='GET')
+            br
+            br
+            div Nova vrijednost osjetljivog atributa?
+            input(type='text', name='att', value='')
+            br
+            br
+            input(type='submit', value='Submit')
+
+
 
         
