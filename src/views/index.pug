@@ -1,0 +1,25 @@
+html 
+    head 
+        title Ranjivosti demo
+    body
+        h1 SQL Injection
+        p Upišite ime studenta (Ana ili Marko) čije podatke želite vidjeti.
+        p Upisivanjem " ' OR 1=1-- " izlistati će se podaci za sve studente ako je ranjivost uključena!
+        form(action='/injection', method='POST')
+            div Ana ili Marko? 
+            input(type='text', name='name', value='')
+            br
+            br
+            div Omogući napad?
+            input(type='checkbox', name='injection')
+            br
+            br
+            input(type='submit', value='Submit')
+        if err
+            p #{err}
+        if data
+            p #{data}
+
+        h1 CSRF
+
+        
